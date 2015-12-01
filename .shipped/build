@@ -1,4 +1,6 @@
 #!/bin/bash
 go get -d
+go get -u labix.org/v2/mgo
+go get -u labix.org/v2/mgo/bson
 go build -o .shipped/out
 cp .shipped/out /tmp/shipped-out
