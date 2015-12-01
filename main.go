@@ -3,7 +3,7 @@ package main
 import (
 	"fmt"
 	"net/http"
-    "json"
+    "encoding/json"
 )
 
 func defaultHandler(w http.ResponseWriter, r *http.Request) {
