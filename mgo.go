@@ -7,6 +7,7 @@ import (
 	"gopkg.in/mgo.v2"
     "gopkg.in/mgo.v2/bson"
 	"time"
+	"os"
 )
 
 type Person struct {
@@ -23,7 +24,11 @@ var (
 
 func runTestDB() ([]Person, error) {
 	trackcount++
-	session, err := mgo.Dial("127.0.0.1")
+	session, err := mgo.DialWithInfo(&mgo.DialInfo{
+		Addrs: []string{os.Getenv("MONGO_URL")},
+		Username: "root",
+		Password: os.Getenv("MONGODB_PASS"),
+	})
 	if err != nil {
 		return nil, err
 	}
