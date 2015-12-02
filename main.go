@@ -7,8 +7,6 @@ import (
 )
 
 func defaultHandler(w http.ResponseWriter, r *http.Request) {
-    fmt.Fprintf(w, "<h1>Hello from Cisco Shipped Moooooo!</h1>\n")
-    
     persons, err := runTestDB();
     if err != nil {
         http.Error(w, "Damn!. . .", 500)
