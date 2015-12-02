@@ -91,7 +91,7 @@ func runTestDB() ([]Person, error) {
 	}
 
 	// Query All
-	err = c.Find().Sort("-timestamp").All(&results)
+	err = c.Find(nil).Sort("-timestamp").All(&results)
 
 	if err != nil {
 		return nil, err
