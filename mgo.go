@@ -21,7 +21,7 @@ var (
 	trackcount = 0
 )
 
-func runTestDB() {
+func runTestDB() ([]Person, error) {
 	trackcount++
 	session, err := mgo.Dial("127.0.0.1")
 	if err != nil {
@@ -58,7 +58,7 @@ func runTestDB() {
 	}
 
 	// Insert Datas
-	err = c.Insert(&Person{Name: "Ale"+trackcount, Phone: "+55 53 1234 4321", Timestamp: time.Now()},
+	err = c.Insert(&Person{Name: "Ale"+string(trackcount), Phone: "+55 53 1234 4321", Timestamp: time.Now()},
 		&Person{Name: "Cla", Phone: "+66 33 1234 5678", Timestamp: time.Now()})
 
 	if err != nil {

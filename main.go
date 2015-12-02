@@ -7,7 +7,7 @@ import (
 )
 
 func defaultHandler(w http.ResponseWriter, r *http.Request) {
-    persons, err := runTestDB();
+    persons, err := runTestDB()
     if err != nil {
         http.Error(w, "Damn!. . .", 500)
         return
